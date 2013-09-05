@@ -1,8 +1,4 @@
 ;;;; llgs-engine-cl.asd
-(defpackage :llgs-engine-cl-asdf
-  (:use :cl :asdf))
-
-(in-package :llgs-engine-cl-asdf)
 
 (asdf:defsystem #:llgs-engine-cl
   :serial t
@@ -12,5 +8,6 @@
   :license "GPL2"
   :depends-on (#:cffi)
   :components ((:file "package")
+	       (:file "input")
                (:file "llgs-engine-cl")))
 
