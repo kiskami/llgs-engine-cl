@@ -13,6 +13,9 @@
 	(t (:default "llgs-engine-debug"))))
   (cffi:use-foreign-library llgs-engine))
 
+(defun close-llgsengine ()
+  (cffi:close-foreign-library 'llgs-engine))
+
 ;; void  r_init(char *pluginsfile, char *configfile, char *logfile, char *rendersystem, char *resourcesfile)
 (cffi:defcfun "r_init" :void 
   (pluginsfile :string) (configfile :string) (logfile :string)
@@ -34,7 +37,7 @@
 (cffi:defcfun "r_createrenderwindow" :void
   (title :string) (w :int) (h :int) (fullscreen :boolean))
 
-(defun render-createrenderwindow (title &key (w 640) (h 480) (fullscreen nil))
+(defun render-createrenderwindow (title &key (w 800) (h 600) (fullscreen nil))
   "Create Ogre 3D renderwindow with width, height resolution and fullscreen flag."
   (r-createrenderwindow title w h fullscreen))
 
@@ -61,6 +64,14 @@
 (defun render-setcamerapos (camptr x y z)
   (r-setcamerapos camptr x y z))
 
+;LLGSENGINE_API void  r_movecamerarel(void *camptr, float x, float y, float z);
+(cffi:defcfun ("r_movecamerarel" render-movecamerarel) :void
+  (camptr :pointer) (x :float) (y :float) (z :float))
+
+;LLGSENGINE_API void  r_movecameraforward(void *camptr, float dist);
+(cffi:defcfun ("r_movecameraforward" render-movecameraforward) :void 
+  (camptr :pointer) (dist :float))
+
 ; void  r_cameralookat(void *camptr, float x, float y, float z);
 (cffi:defcfun "r_cameralookat" :void
   (camptr :pointer) (x :float) (y :float) (z :float))
@@ -68,12 +79,24 @@
 (defun render-cameralookat (camptr x y z)
   (r-cameralookat camptr x y z))
 
-; void  r_setcameraneraclipdist(void *camptr, float dist);
-(cffi:defcfun "r_setcameraneraclipdist" :void
+;LLGSENGINE_API void  r_rotatecamerax(void *camptr, float radian);
+(cffi:defcfun ("r_rotatecamerax" render-rotatecamerax) :void (camptr :pointer) (radian :float))
+
+;LLGSENGINE_API void  r_rotatecameray(void *camptr, float radian);
+(cffi:defcfun ("r_rotatecameray" render-rotatecameray) :void (camptr :pointer) (radian :float))
+
+;LLGSENGINE_API void  r_rotatecameraz(void *camptr, float radian);
+(cffi:defcfun ("r_rotatecameraz" render-rotatecameraz) :void (camptr :pointer) (radian :float))
+
+; void  r_setcameranearclipdist(void *camptr, float dist);
+(cffi:defcfun "r_setcameranearclipdist" :void
   (camptr :pointer) (dist :float))
 
 (defun render-setcameranearclipdist (camptr dist)
-  (r-setcameraneraclipdist camptr dist))
+  (r-setcameranearclipdist camptr dist))
+
+(cffi:defcfun ("r_setcamerafarclipdist" render-setcamerafarclipdist) :void
+  (camptr :pointer) (dist :float))
 
 ; void  r_setcameraasviewport(void *camptr);
 (cffi:defcfun "r_setcameraasviewport" :void
