@@ -40,4 +40,5 @@
 	   :render-setlightpos :render-setlightdir
 	   :colldet-init :colldet-shutdown
 	   :colldet-enabledebugdrawer :colldet-addsphere :colldet-addbox
+	   :colldet-addmeshgeom
 	   :colldet-perform :colldet-getcollpair))

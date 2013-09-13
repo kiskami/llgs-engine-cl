@@ -40,3 +40,7 @@
 (defun colldet-getcollpair (index)
   (cons (c-getcollisionpairObjA index)
 	(c-getcollisionpairObjB index)))
+
+;LLGSENGINE_API void *c_addmeshgeom(float x, float y, float z, void *meshptr, float mass, int mygrp, int grpmask);
+(cffi:defcfun ("c_addmeshgeom" colldet-addmeshgeom) :pointer
+  (x :float) (y :float)(z :float) (meshptr :pointer)(mass :float)(mygrp :int)(grpmask :int))
