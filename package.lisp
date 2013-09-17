@@ -39,6 +39,9 @@
 	   :render-lightdiffcolor :render-lightspeccolor
 	   :render-setlightpos :render-setlightdir
 	   :colldet-init :colldet-shutdown
-	   :colldet-enabledebugdrawer :colldet-addsphere :colldet-addbox
-	   :colldet-addmeshgeom
-	   :colldet-perform :colldet-getcollpair))
+	   :colldet-setdebugdrawmode :colldet-addsphere :colldet-addbox
+	   :colldet-addmeshgeom :colldet-setdynamic
+	   :colldet-syncolobjtoscenenode :colldet-setscale
+	   :colldet-perform :colldet-getcollpair
+	   :render-createsimpletext :render-simpletextcolor
+	   :render-simpletextshow :render-simpletexthide :render-simpletextsettext))

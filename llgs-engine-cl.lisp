@@ -158,3 +158,25 @@
 
 (defun timer-getmicroseconds (timerptr)
   (t-gettimermicroseconds timerptr))
+
+; void  *r_simpletextpanel(char *id, char *txt, char *fontname, int fontsize, float x, float y, float w, float h);
+(cffi:defcfun ("r_simpletextpanel" render-createsimpletext) :pointer
+  (id :string) (txt :string) (fontname :string) (fontsize :int) 
+  (x :float) (y :float)
+  (w :float) (h :float))
+
+; void  r_simpletextsetcolor(char *id, float r, float g, float b);
+(cffi:defcfun ("r_simpletextsetcolor" render-simpletextcolor) :void
+  (id :string) (r :float) (g :float) (b :float))
+
+; void  r_simpletextshow(char *id);
+(cffi:defcfun ("r_simpletextshow" render-simpletextshow) :void
+  (id :string))
+
+; void  r_simpletexthide(char *id);
+(cffi:defcfun ("r_simpletexthide" render-simpletexthide) :void
+  (id :string))
+
+; void  r_simpletextsettext(char *id, char *txt);
+(cffi:defcfun ("r_simpletextsettext" render-simpletextsettext) :pointer
+  (id :string) (txt :string))

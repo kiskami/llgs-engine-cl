@@ -17,9 +17,9 @@
 (cffi:defcfun ("r_setscenenodepos" render-setscenenodepos) :void
   (nodeptr :pointer) (x :float) (y :float) (z :float))
 
-;LLGSENGINE_API void  r_translatescenenode(void *nodeptr, float dx, float dy, float ;dz);
+;LLGSENGINE_API void  r_translatescenenode(void *nodeptr, float dx, float dy, float dz , bool local);
 (cffi:defcfun ("r_translatescenenode" render-translatescenenode) :void
-  (nodeptr :pointer) (x :float) (y :float) (z :float))
+  (nodeptr :pointer) (x :float) (y :float) (z :float) (local :boolean))
 
 ;LLGSENGINE_API void  r_setscenenodescale(void *nodeptr, float xs, float ys, float zs);
 (cffi:defcfun ("r_setscenenodescale" render-setscenenodescale) :void
