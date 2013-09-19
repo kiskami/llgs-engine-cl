@@ -35,13 +35,19 @@
 	   :render-createchildscenenode :render-getparentscenenode 
 	   :render-addchild :render-removechild
 	   :render-setscenenodeuserobj :render-getscenenodeuserobj :render-delscenenodeuserobj
+	   :render-getscenenodepos
 	   :render-createlight :render-destorylight :render-setlighttype
 	   :render-lightdiffcolor :render-lightspeccolor
 	   :render-setlightpos :render-setlightdir
 	   :colldet-init :colldet-shutdown
 	   :colldet-setdebugdrawmode :colldet-addsphere :colldet-addbox
-	   :colldet-addmeshgeom :colldet-setdynamic
-	   :colldet-syncolobjtoscenenode :colldet-setscale
+	   :colldet-addmeshgeom
+	   :colldet-syncolobjtoscenenode :colldet-setscale :colldet-setcolobjpos
 	   :colldet-perform :colldet-getcollpair
 	   :render-createsimpletext :render-simpletextcolor
-	   :render-simpletextshow :render-simpletexthide :render-simpletextsettext))
+	   :render-simpletextshow :render-simpletexthide :render-simpletextsettext
+	   :render-actfps :render-minfps :render-maxfps :render-trianglecount :render-batchcount
+	   :billboardset-create :billboardset-clear :billboardset-destroy
+	   :billboard-create :billboard-remove
+	   :billboardset-setmaterial :billboardset-setdefdims
+	   :billboard-setpos))

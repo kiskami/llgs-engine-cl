@@ -14,6 +14,8 @@
 	       (:file "partsys" :depends-on ("package"))
 	       (:file "scenenode" :depends-on ("package"))
 	       (:file "light" :depends-on ("package"))
+	       (:file "billboard" :depends-on ("package"))
                (:file "llgs-engine-cl" :depends-on ("package" "input" "colldet" "mesh" 
-							      "partsys" "scenenode" "light"))))
+							      "partsys" "scenenode" "light"
+							      "billboard"))))
 

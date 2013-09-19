@@ -23,7 +23,7 @@
 
 (defun render-init (pluginscfg conffile logfile rendersystem resfile)
   "Init Ogre 3D renderer with some basic parameters. Example call: (render-init \"plugins_d.cfg\" \"mygame.cfg\" \"mygame.log\" 'directx, \"resources.cfg\")"
-  (let ((rsys (cond ((equal rendersystem 'directx) "Direct3D9 Rendering Subsystem")
+  (let ((rsys (cond ((eq rendersystem 'directx) "Direct3D9 Rendering Subsystem")
 		    (t "OpenGL Rendering Subsystem"))))
     (r-init pluginscfg conffile logfile rsys resfile)))
 
@@ -33,11 +33,11 @@
   "Shutdown engine after done using it."
   (r-shutdown))
 
-;; void  r_createrenderwindow(char *title, int w, int h, bool fullscreen);
+;; void  r_createrenderwindow(char *title, int w, int h, int fullscreen);
 (cffi:defcfun "r_createrenderwindow" :void
-  (title :string) (w :int) (h :int) (fullscreen :boolean))
+  (title :string) (w :int) (h :int) (fullscreen :int))
 
-(defun render-createrenderwindow (title &key (w 800) (h 600) (fullscreen nil))
+(defun render-createrenderwindow (title &key (w 800) (h 600) (fullscreen 0))
   "Create Ogre 3D renderwindow with width, height resolution and fullscreen flag."
   (r-createrenderwindow title w h fullscreen))
 
@@ -180,3 +180,18 @@
 ; void  r_simpletextsettext(char *id, char *txt);
 (cffi:defcfun ("r_simpletextsettext" render-simpletextsettext) :pointer
   (id :string) (txt :string))
+
+;LLGSENGINE_API float r_actfps();
+(cffi:defcfun ("r_actfps" render-actfps) :float)
+
+;LLGSENGINE_API float r_minfps();
+(cffi:defcfun ("r_minfps" render-minfps) :float)
+
+;LLGSENGINE_API float r_maxfps();
+(cffi:defcfun ("r_maxfps" render-maxfps) :float)
+
+;LLGSENGINE_API long r_trianglecount();
+(cffi:defcfun ("r_trianglecount" render-trianglecount) :long)
+
+;LLGSENGINE_API long r_batchcount();
+(cffi:defcfun ("r_batchcount" render-batchcount) :long)

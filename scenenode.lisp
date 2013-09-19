@@ -77,3 +77,15 @@
 ;LLGSENGINE_API void  r_delscenenodeuserobj(void *nodeptr, char *key);
 (cffi:defcfun ("r_delscenenodeuserobj" render-delscenenodeuserobj) :void
   (nodeptr :pointer) (obj :pointer))
+
+;LLGSENGINE_API float r_getscenenodeposx(void *nodeptr);
+(cffi:defcfun "r_getscenenodeposx" :float (nodeptr :pointer))
+
+;LLGSENGINE_API float r_getscenenodeposy(void *nodeptr);
+(cffi:defcfun "r_getscenenodeposy" :float (nodeptr :pointer))
+
+;LLGSENGINE_API float r_getscenenodeposz(void *nodeptr);
+(cffi:defcfun "r_getscenenodeposz" :float (nodeptr :pointer))
+
+(defun render-getscenenodepos (nodeptr)
+  (list (r-getscenenodeposx nodeptr) (r-getscenenodeposy nodeptr) (r-getscenenodeposz nodeptr)))
