@@ -28,20 +28,20 @@
 	   :input-mousex :input-mousey :input-mouserelx :input-mouserely
 	   :mesh-load :mesh-destroy :mesh-clone :mesh-setmaterial
 	   :partsys-create :partsys-destroy :partsys-setemitting :partsys-setvis
-	   :render-createscenenode :render-rootscenenode :render-destoryscenenode
+	   :render-createscenenode :render-rootscenenode :render-destroyscenenode
 	   :render-setscenenodepos :render-translatescenenode :render-setscenenodescale
 	   :render-rotatescenenodex :render-rotatescenenodey :render-rotatescenenodez
 	   :render-attachmoveable :render-detachmoveable :render-setscenenodevis
 	   :render-createchildscenenode :render-getparentscenenode 
 	   :render-addchild :render-removechild
 	   :render-setscenenodeuserobj :render-getscenenodeuserobj :render-delscenenodeuserobj
-	   :render-getscenenodepos
-	   :render-createlight :render-destorylight :render-setlighttype
+	   :render-getscenenodepos :render-getscenenodeorientation
+	   :render-createlight :render-destroylight :render-setlighttype
 	   :render-lightdiffcolor :render-lightspeccolor
 	   :render-setlightpos :render-setlightdir
 	   :colldet-init :colldet-shutdown
 	   :colldet-setdebugdrawmode :colldet-addsphere :colldet-addbox
-	   :colldet-addmeshgeom
+	   :colldet-addmeshgeom :colldet-delcolobj
 	   :colldet-syncolobjtoscenenode :colldet-setscale :colldet-setcolobjpos
 	   :colldet-perform :colldet-getcollpair
 	   :render-createsimpletext :render-simpletextcolor
@@ -50,4 +50,4 @@
 	   :billboardset-create :billboardset-clear :billboardset-destroy
 	   :billboard-create :billboard-remove
 	   :billboardset-setmaterial :billboardset-setdefdims
-	   :billboard-setpos))
+	   :billboard-setpos :billboard-move :billboard-getpos))

@@ -51,3 +51,7 @@
 ;LLGSENGINE_API void c_setcolobjpos(void *colobjptr, float x, float y, float z);
 (cffi:defcfun ("c_setcolobjpos" colldet-setcolobjpos) :void
   (colobjptr :pointer) (x :float) (y :float)(z :float))
+
+;LLGSENGINE_API void c_delcolobj(void *colobjptr);
+(cffi:defcfun ("c_delcolobj" colldet-delcolobj) :void
+  (colobj :pointer))

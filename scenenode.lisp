@@ -46,9 +46,12 @@
 (cffi:defcfun ("r_detachmoveable" render-detachmoveable) :void
   (nodeptr :pointer) (moveableptr :pointer))
 
-;LLGSENGINE_API void *r_createchildscenenode(void *nodeptr, char *name);
-(cffi:defcfun ("r_createchildscenenode" render-createchildscenenode) :pointer
-  (nodeptr :pointer) (name :string))
+;LLGSENGINE_API void *r_createchildscenenode(void *nodeptr, char *name, int inheritori, int inheritscale);
+(cffi:defcfun "r_createchildscenenode" :pointer
+  (nodeptr :pointer) (name :string) (inheritori :int) (inheritscale :int))
+
+(defun render-createchildscenenode (nodeptr name &key (inheritori 1) (inheritscale 1))
+  (r-createchildscenenode nodeptr name inheritori inheritscale))
 
 ;LLGSENGINE_API void *r_getparentscenenode(void *nodeptr);
 (cffi:defcfun ("r_getparentscenenode" render-getparentscenenode) :pointer
@@ -89,3 +92,19 @@
 
 (defun render-getscenenodepos (nodeptr)
   (list (r-getscenenodeposx nodeptr) (r-getscenenodeposy nodeptr) (r-getscenenodeposz nodeptr)))
+
+;LLGSENGINE_API float r_getscenenodeorix(void *nodeptr);
+(cffi:defcfun "r_getscenenodeorix" :float (nodeptr :pointer))
+
+;LLGSENGINE_API float r_getscenenodeoriy(void *nodeptr);
+(cffi:defcfun "r_getscenenodeoriy" :float (nodeptr :pointer))
+
+;LLGSENGINE_API float r_getscenenodeoriz(void *nodeptr);
+(cffi:defcfun "r_getscenenodeoriz" :float (nodeptr :pointer))
+
+;LLGSENGINE_API float r_getscenenodeoriw(void *nodeptr);
+(cffi:defcfun "r_getscenenodeoriw" :float (nodeptr :pointer))
+
+(defun render-getscenenodeorientation (nodeptr)
+  (list (r-getscenenodeorix nodeptr) (r-getscenenodeoriy nodeptr)
+	(r-getscenenodeoriz nodeptr) (r-getscenenodeoriw nodeptr)))

@@ -30,3 +30,20 @@
 ;LLGSENGINE_API void r_setbillboardpos(void *setptr, void *billprt, float x, float y, float z);
 (cffi:defcfun ("r_setbillboardpos" billboard-setpos) :void
   (setptr :pointer) (billptr :pointer) (x :float) (y :float) (z :float))
+
+;LLGSENGINE_API void r_movebillboard(void *setptr, void *billprt, float x, float y, float z, float w, float dist);
+(cffi:defcfun ("r_movebillboard" billboard-move) :void
+  (setptr :pointer) (billptr :pointer) (x :float) (y :float) (z :float) (w :float)
+  (dist :float))
+
+;LLGSENGINE_API float r_getbillboardx(void *setptr, void *billprt);
+(cffi:defcfun "r_getbillboardx" :float (setptr :pointer) (billptr :pointer))
+
+;LLGSENGINE_API float r_getbillboardy(void *setptr, void *billprt);
+(cffi:defcfun "r_getbillboardy" :float (setptr :pointer) (billptr :pointer))
+
+;LLGSENGINE_API float r_getbillboardz(void *setptr, void *billprt);
+(cffi:defcfun "r_getbillboardz" :float (setptr :pointer) (billptr :pointer))
+
+(defun billboard-getpos (setptr billptr)
+  (list (r-getbillboardx setptr billptr) (r-getbillboardy setptr billptr) (r-getbillboardz setptr billptr)))
