@@ -46,8 +46,11 @@
 	   :colldet-perform :colldet-getcollpair
 	   :render-createsimpletext :render-simpletextcolor
 	   :render-simpletextshow :render-simpletexthide :render-simpletextsettext
+	   :render-createsimpleimage
 	   :render-actfps :render-minfps :render-maxfps :render-trianglecount :render-batchcount
 	   :billboardset-create :billboardset-clear :billboardset-destroy
 	   :billboard-create :billboard-remove
 	   :billboardset-setmaterial :billboardset-setdefdims
-	   :billboard-setpos :billboard-move :billboard-getpos))
+	   :billboard-setpos :billboard-move :billboard-getpos
+	   :billboardset-stacksandslices :billboard-settexcoordind
+	   :billboard-updatebounds :billboard-setdims))

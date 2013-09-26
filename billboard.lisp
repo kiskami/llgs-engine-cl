@@ -47,3 +47,16 @@
 
 (defun billboard-getpos (setptr billptr)
   (list (r-getbillboardx setptr billptr) (r-getbillboardy setptr billptr) (r-getbillboardz setptr billptr)))
+
+;LLGSENGINE_API void r_setbillboardsetstacksandslices(void *setptr, unsigned char stacks, unsigned char slices);
+(cffi:defcfun ("r_setbillboardsetstacksandslices" billboardset-stacksandslices) :void
+  (setptr :pointer) (stacks :unsigned-char) (slices :unsigned-char))
+
+;LLGSENGINE_API void r_setbillboardtextcoodrdindex(void *setptr, void *billprt, unsigned short index);
+(cffi:defcfun ("r_setbillboardtextcoodrdindex" billboard-settexcoordind) :void (setptr :pointer) (billptr :pointer) (index :unsigned-short))
+
+;LLGSENGINE_API void r_updatebillboardbounds(void *setptr);
+(cffi:defcfun ("r_updatebillboardbounds" billboard-updatebounds) :void (setptr :pointer))
+
+;LLGSENGINE_API void r_setbillboarddims(void *setptr, void *billprt, float w, float h);
+(cffi:defcfun ("r_setbillboarddims" billboard-setdims) :void (setptr :pointer) (billptr :pointer) (w :float) (h :float))

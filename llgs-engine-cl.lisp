@@ -196,3 +196,8 @@
 
 ;LLGSENGINE_API long r_batchcount();
 (cffi:defcfun ("r_batchcount" render-batchcount) :long)
+
+;LLGSENGINE_API void  *r_simpleimagepanel(char *id, char *matname, float x, float y, float w, float h, int pixelmetrics);
+(cffi:defcfun ("r_simpleimagepanel" render-createsimpleimage) :pointer
+  (id :string) (matname :string) (x :float) (y :float)
+  (w :float) (h :float) (pixelmetrics :int))
